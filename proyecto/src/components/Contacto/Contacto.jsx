@@ -1,3 +1,5 @@
+import './contacto.css'
+
 const Contacto = () => {
   return (
     <div>
@@ -5,13 +7,15 @@ const Contacto = () => {
         <h3>Programadora Full Stack developer</h3>
         <img src="" alt="imagen Daniela" />
         <p>.......</p>
-         {/*Introducir link Github */}
-         
+         {/*Introducir link Github +logo Github
+        Perfil linkedin +logo linkedin*/}
+
         <h2>Iosu Gómez</h2>
         <h3>Programadora Full Stack developer</h3>
         <img src="" alt="imagen Daniela" />
         <p>.......</p>
-        {/*Introducir link Github */}
+        {/*Introducir link Github +logo Github
+        Perfil linkedin +logo linkedin*/}
 
 
     </div>

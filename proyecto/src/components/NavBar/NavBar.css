@@ -1,11 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Medieval&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Harry+Potter&display=swap');
+
+@font-face {
+  font-family: "Harry Potter";
+  src: url(../src/assets/fonts/HARRYP__.TTF);
+}
+
+* {
+  margin: 0;
+  color: gray;
+}
 
 nav {
   display: flex;
   justify-content: center;
-  background-color: #f3e9d2;
-  padding: 1rem;
-  font-family: "Medieval", cursive;
+  background-image: url('./FondoNavBar.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 25px 0;
+  font-family: "Harry Potter", cursive;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  margin-bottom: 25px;
 }
 
 ul {
@@ -22,15 +38,47 @@ li:last-child {
 }
 
 a {
-  color: #444;
+  color: gray;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   transition: all 0.3s;
+  letter-spacing: 2px;
+  font-size: 1.5em;
+  border: 2px solid gold;
+  animation: bounce 0.4s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 a:hover {
-  background-color: #888;
-  color: #fff;
+  background-color: gold;
+  color: gold;
+  transform: scale(1.1);
+  animation: rotate 0.4s linear infinite;
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+h2 {
+  font-family: "Harry Potter";
+  font-size: 48px;
+  color: gray;
+}

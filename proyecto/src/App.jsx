@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 
 //Importación de hoja de estilos y jpg.
+
 import './App.css';
 import imageC from './assets/fondocarta.jpg';
 import NavBar from './components/NavBar/NavBar';
