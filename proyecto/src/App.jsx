@@ -1,13 +1,20 @@
+//Importaciones de librerias
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
+
+//Importación de hoja de estilos y jpg.
 import './App.css';
 import imageC from './assets/fondocarta.jpg';
 import NavBar from './components/NavBar/NavBar';
+
+
 import Home from './components/Home/Home';
 import Characters from './components/Characters';
 import CharacterFilter from './components/CharacterFilter';
 import Trivial from './components/Trivial/Trivial';
+import Favorito from './Favoritos/Favoritos';
+import Contacto from './components/Contacto/Contacto';
 
 function App() {
   const [listCharacters, setListCharacters] = useState([]);
@@ -36,9 +43,7 @@ function App() {
     setFavorites([...favorites, newFav]);
   };
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
+ 
 
   const filteredCharacters = listCharacters.filter((character) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -50,6 +55,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trivial" element={<Trivial />} />
+        <Route path="/favoritos" element={<Favorito />} />
+        <Route path='/contacto' element={<Contacto />} />
       </Routes>
       <main>
         <Characters list={filteredCharacters} addNewFavorite={addNewFavorite} />
