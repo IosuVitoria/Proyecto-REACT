@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Medieval&display=swap');
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #f3e9d2;
+  padding: 1rem;
+  font-family: "Medieval", cursive;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li {
+  margin-right: 1rem;
+}
+
+li:last-child {
+  margin-right: 0;
+}
+
+a {
+  color: #444;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+a:hover {
+  background-color: #888;
+  color: #fff;
+}
+

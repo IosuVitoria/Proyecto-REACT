@@ -1,10 +1,13 @@
-// App.js
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import axios from "axios";
+import imageC from './assets/fondocarta.jpg';
+import NavBar from './components/NavBar/NavBar';
+import Home from './components/Home/Home';
 import Characters from './components/Characters';
 import CharacterFilter from './components/CharacterFilter';
-import imageC from "./assets/fondocarta.jpg";
+import Trivial from './components/Trivial/Trivial';
 
 function App() {
   const [listCharacters, setListCharacters] = useState([]);
@@ -19,14 +22,14 @@ function App() {
   };
 
   useEffect(() => {
-    axios.get(url).then(
-      (resp) => {
+    axios
+      .get(url)
+      .then((resp) => {
         setListCharacters(resp.data);
-      },
-      (error) => {
+      })
+      .catch((error) => {
         console.log(error);
-      }
-    );
+      });
   }, [house]);
 
   const addNewFavorite = (newFav) => {
@@ -37,37 +40,32 @@ function App() {
     setSearchTerm(event.target.value);
   };
 
-  const filteredCharacters = listCharacters.filter(character =>
+  const filteredCharacters = listCharacters.filter((character) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  console.log (favorites);
+
   return (
     <div className="App">
-      <h2>Listado de personajes</h2>
-      <div id="Filters">
-        <select name="" id="Housefilter" onChange={handleSelect}>
-          <option value="gryffindor">Gryffindor</option>
-          <option value="Ravenclaw">Ravenclaw</option>
-          <option value="Hufflepuff">Hufflepuff</option>
-          <option value="Slytherin">Slytherin</option>
-        </select>
-        <CharacterFilter id="Namefilter" searchTerm={searchTerm} handleSearch={handleSearch} />
-      </div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/trivial" element={<Trivial />} />
+      </Routes>
       <main>
         <Characters list={filteredCharacters} addNewFavorite={addNewFavorite} />
+
         <h2>PERSONAJES FAVORITOS DEL USUARIO</h2>
-          <ul>
-            {favorites.map((favorite) => (
-              <li key={favorite.id} style={{ backgroundImage: `url(${imageC})` }}>
-              <img src={favorite.image} alt={`character image`} className="character-image" />
+        <ul>
+          {favorites.map((favorite) => (
+            <li key={favorite.id} style={{ backgroundImage: `url(${imageC})` }}>
+              <img src={favorite.image} alt="character image" className="character-image" />
               <p>Name: {favorite.name}</p>
-              </li>
-              ))}
-          </ul>
+            </li>
+          ))}
+        </ul>
       </main>
     </div>
   );
 }
 
 export default App;
-
