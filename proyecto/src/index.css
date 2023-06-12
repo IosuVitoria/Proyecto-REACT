@@ -23,10 +23,10 @@
 a {
   font-weight: 500;
   color: #05060f;
-  text-decoration: inherit;
+
 }
 a:hover {
-  color: #303033;
+  color: #0d0d0e;
 }
 
 body {

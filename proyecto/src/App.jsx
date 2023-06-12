@@ -8,7 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import imageC from './assets/fondocarta.jpg';
 import NavBar from './components/NavBar/NavBar';
-import imageL from './logo.png';
+import imageL from './harrylogo.png';
 
 
 import Home from './components/Home/Home';
@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="App">
-      {/*<img src={imageL} alt="logo" />*/}
+      <img src={imageL} alt="logo marca" className='Harrylogo' />
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
