@@ -76,7 +76,9 @@ const MaxCharTextarea = () => {
   });
 
   return (
+    
     <div className="max-char-textarea">
+      <div className='intro'> Desde la escuela de magia y hechicería os animamos a crear vuestra historia. El reto consiste en siguendo la historia y ver donde nos lleva. Ir escribiendo, el viaje ha comenzado...</div>
       <div className="input-group">
         <label htmlFor="name">Nombre:</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
