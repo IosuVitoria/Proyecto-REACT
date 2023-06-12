@@ -16,6 +16,7 @@ import CharacterFilter from './components/CharacterFilter';
 import Trivial from './components/Trivial/Trivial';
 import Favorito from './Favoritos/Favoritos';
 import Contacto from './components/Contacto/Contacto';
+import History from './components/Historias/History';
 
 function App() {
   const [listCharacters, setListCharacters] = useState([]);
@@ -56,6 +57,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trivial" element={<Trivial />} />
+        <Route path="/historias" element={<History />} />
         <Route path="/favoritos" element={<Favorito />} />
         <Route path='/contacto' element={<Contacto />} />
       </Routes>
