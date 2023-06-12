@@ -5,7 +5,7 @@ const MaxCharTextarea = () => {
   const [text, setText] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [story, setStory] = useState('');
+  const [stories, setStories] = useState([]);
   const [date, setDate] = useState('');
 
   const textareaRef = useRef(null);
@@ -21,10 +21,19 @@ const MaxCharTextarea = () => {
     window.addEventListener('resize', updateTextareaSize);
     updateTextareaSize();
 
+    const storedStories = localStorage.getItem('stories');
+    if (storedStories) {
+      setStories(JSON.parse(storedStories));
+    }
+
     return () => {
       window.removeEventListener('resize', updateTextareaSize);
     };
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('stories', JSON.stringify(stories));
+  }, [stories]);
 
   const handleTextChange = (event) => {
     setText(event.target.value);
@@ -41,12 +50,30 @@ const MaxCharTextarea = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const currentDate = new Date().toLocaleDateString();
-    setStory(text);
-    setDate(currentDate);
+    const newStory = {
+      name: name,
+      email: email,
+      text: text,
+      date: currentDate,
+    };
+    setStories([...stories, newStory]);
     setText('');
     setName('');
     setEmail('');
   };
+
+  const handlePrintStory = () => {
+    window.print();
+  };
+
+  const handleDeleteStories = () => {
+    setStories([]);
+    localStorage.removeItem('stories');
+  };
+
+  const sortedStories = stories.slice().sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
+  });
 
   return (
     <div className="max-char-textarea">
@@ -65,16 +92,22 @@ const MaxCharTextarea = () => {
         placeholder="Ingresa tu texto aquí..."
       />
       <button onClick={handleSubmit}>Enviar</button>
-      {story && (
+      {sortedStories.length > 0 && (
         <div className="story-section">
-          <h3>Historia del usuario:</h3>
-          <p>{story}</p>
-          <p>Fecha: {date}</p>
+          <h3>Historias guardadas:</h3>
+          {sortedStories.map((story, index) => (
+            <div key={index}>
+              <p>{story.text}</p>
+              <p>Nombre: {story.name}</p>
+              <p>Email: {story.email}</p>
+              <p>Fecha: {story.date}</p>
+              <button onClick={handlePrintStory}>Imprimir</button>
+            </div>
+          ))}
+          <button onClick={handleDeleteStories}>Borrar historias</button>
         </div>
       )}
       <div className="image-section">
-        <h3>Imagen de muestra:</h3>
-        <img src="../componentes/NavBar/FondoNavBar.jpg" alt="Imagen de muestra" />
       </div>
     </div>
   );
