@@ -13,7 +13,7 @@ const Contacto = () => {
           <img src={imageD} alt="imagen Daniela" />
           <div className="info-wrapper">
             <h3>Programadora Full Stack developer</h3>
-            <p>.......</p>
+            <h4></h4>
             <div className="link-wrapper">
               <img src={githubLogo} alt="GitHub Logo" />
               <a href="https://github.com/danulopez">https://github.com/danulopez</a>

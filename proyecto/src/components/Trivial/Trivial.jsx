@@ -29,14 +29,12 @@ const Trivial = () => {
       <h1>Trivial de Harry Potter</h1>
 
       {/* Imagen A */}
-      <div className="imageA-container">
-        <img src={imageA} alt="Imagen del Trivial" className='Imagefondo'/>
+      <div className="">
+        {<img src={imageA} alt="Imagen del Trivial" className='imageA-container'/>}
       </div>
 
       {/* Imagen B y contenido */}
       <div className="imageB-container">
-        <img src={imageB} alt="Imagen de la pregunta" className='Imagepregunta' />
-
         {/* Sección de la pregunta actual */}
         <div className="question-section">
           <div className="question-count">
