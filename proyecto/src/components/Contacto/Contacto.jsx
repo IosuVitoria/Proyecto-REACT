@@ -13,14 +13,16 @@ const Contacto = () => {
           <img src={imageD} alt="imagen Daniela" />
           <div className="info-wrapper">
             <h3>Programadora Full Stack developer</h3>
-            <h4></h4>
+            <h4>Administrativa sanitaria, actualmente trabajando en el sector textil</h4>
+            <h4>que ha decidido lanzarse al mundo de la programacion a traves de un bootcamp en UpgradeHub</h4>
+            <h4>Puedes ver mas sobre mi en linkedIn y GitHub</h4>
             <div className="link-wrapper">
               <img src={githubLogo} alt="GitHub Logo" />
               <a href="https://github.com/danulopez">https://github.com/danulopez</a>
             </div>
             <div className="link-wrapper">
               <img src={linkedinLogo} alt="LinkedIn Logo" />
-              <a href="https://www.linkedin.com/in/daniela-ester-l%C3%B3pez-9b05a95b/">https://www.linkedin.com/in/daniela-ester-l%C3%B3pez-9b05a95b/</a>
+              <a href="https://www.linkedin.com/in/daniela-ester-lopez">https://www.linkedin.com/in/daniela-ester-lopez</a>
             </div>
           </div>
         </div>
