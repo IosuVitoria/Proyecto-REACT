@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://iosuvitoria.github.io/dayana02/",
+  "homepage": "https://iosuvitoria.github.io/dayana02",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
